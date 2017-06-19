@@ -1,0 +1,16 @@
+<div class="alias">
+  <input
+    #source
+    type="text"
+    (input)="onPropChange('source', source.value)"
+    [value]="alias.source"
+    placeholder="Source"
+  />
+  <input
+    #target
+    type="text"
+    (input)="onPropChange('target', target.value)"
+    [value]="alias.target"
+    placeholder="Target"
+  />
+</div>

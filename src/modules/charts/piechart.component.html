@@ -1,0 +1,9 @@
+<div *ngIf="!(isEmpty$ | async)">
+  Values: {{ values$ | async }}
+  Labels: {{ labels$ | async }}
+  <canvas baseChart
+    [data]="values$ | async"
+    [labels]="labels$ | async"
+    [chartType]="'pie'"
+  ></canvas>
+</div>

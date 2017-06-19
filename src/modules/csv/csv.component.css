@@ -1,0 +1,12 @@
+.csv {
+  height: 100px;
+  border: 1px dashed #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.csv.dragging {
+  border-color: #55ccee;
+}

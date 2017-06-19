@@ -1,0 +1,15 @@
+<ul class="aliases">
+  <li
+    *ngFor="let alias of aliases | async; let i = index; trackBy: trackByIndex"
+    class="alias"
+  >
+    <app-alias
+      [alias]="alias"
+      (onChange)="changeAlias(i, $event)"
+    ></app-alias>
+  </li>
+</ul>
+<button
+  type="button"
+  (click)="addAlias()"
+>Add alias</button>

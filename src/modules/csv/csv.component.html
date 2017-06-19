@@ -1,0 +1,8 @@
+<div
+  class="csv"
+  [class.dragging]="isDragging"
+  (dragenter)="onDragenter($event)"
+  (dragleave)="onDragleave($event)"
+  (dragover)="onDragover($event)"
+  (drop)="onDrop($event)"
+>Drop your CSV file here</div>

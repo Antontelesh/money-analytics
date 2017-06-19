@@ -1,0 +1,15 @@
+<div class="datefilter">
+  <input
+    #since
+    type="date"
+    [value]="since$ | async"
+    (change)="change('since', since.value)"
+  />
+  &nbsp;−&nbsp;
+  <input
+    #until
+    type="date"
+    [value]="until$ | async"
+    (change)="change('until', until.value)"
+  />
+</div>
