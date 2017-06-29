@@ -1,3 +1,6 @@
+import * as moment from 'moment'
+import { chain } from 'lodash'
+
 export class CsvRecord {
 
   static CURRENCY = 'Валюта'
@@ -7,6 +10,19 @@ export class CsvRecord {
   static ENTRY = 'Статья'
 
   constructor(private raw) {}
+
+  get isValid () {
+    return chain([
+      CsvRecord.CURRENCY,
+      CsvRecord.ACCOUNT,
+      CsvRecord.AMOUNT,
+      CsvRecord.DATE,
+      CsvRecord.ENTRY,
+    ])
+    .map(prop => this.raw[prop])
+    .every(value => !!value)
+    .value()
+  }
 
   get currency () {
     return this.raw[CsvRecord.CURRENCY]
@@ -22,7 +38,7 @@ export class CsvRecord {
   }
 
   get date () {
-    return this.raw[CsvRecord.DATE]
+    return moment(this.raw[CsvRecord.DATE], 'YYYY.MM.DD', true).format('YYYY-MM-DD')
   }
 
   get entry () {

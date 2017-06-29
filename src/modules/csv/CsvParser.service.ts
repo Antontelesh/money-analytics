@@ -2,6 +2,7 @@ import { parse } from 'csv'
 import { Injectable } from '@angular/core'
 import { IRecord } from '../../interfaces/entities'
 import { CsvRecord } from './CsvRecord'
+import { chain } from 'lodash'
 
 @Injectable()
 export class CsvParser {
@@ -42,7 +43,11 @@ export class CsvParser {
   }
 
   private parseRecords (records: any[]): IRecord[] {
-    return records.map(record => new CsvRecord(record).result)
+    return chain(records)
+      .map(record => new CsvRecord(record))
+      .filter(record => record.isValid)
+      .map(record => record.result)
+      .value()
   }
 
 

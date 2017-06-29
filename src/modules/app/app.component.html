@@ -5,8 +5,12 @@
     <!--<h2>Aliases</h2>
     <app-aliases></app-aliases>-->
   </div>
-  <div class="charts">
-    <app-piechart></app-piechart>
+  <div *ngIf="(records$ | async).length" class="charts">
+    <app-withdraws-by-time
+      [withdraws]="withdraws$ | async"
+      [startDate]="since$ | async"
+      [endDate]="until$ | async"
+    ></app-withdraws-by-time>
   </div>
 </div>
 <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>

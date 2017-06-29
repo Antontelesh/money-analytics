@@ -1,0 +1,16 @@
+<div class="entries">
+  <button
+    type="button"
+    *ngFor="let entry of entries"
+    (click)="setEntry(entry)"
+  >{{entry}}</button>
+</div>
+
+<h2>{{currentEntry}}</h2>
+
+<app-entry-linechart
+  [records]="withdraws"
+  [entry]="currentEntry"
+  [startDate]="startDate"
+  [endDate]="endDate"
+></app-entry-linechart>

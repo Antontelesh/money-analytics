@@ -46,6 +46,7 @@ export class CsvComponent {
   }
 
   receiveRecords (records) {
+    console.log(records)
     this.store.dispatch(receiveRecords(records))
   }
 
